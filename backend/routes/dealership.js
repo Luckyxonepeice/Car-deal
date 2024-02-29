@@ -14,17 +14,32 @@ router.get('/get-dealer', tokenVerify , isAdmin , async(req, res)=>{
 
         const db = await connectDatabase();
 
-        const delear = await db.collection('dealer').findOne({email:email});
+        const dealer = await db.collection('user').findOne({email:email});
 
-        const cars = await db.collection('cars').find({email:email});
+        const cars = await db.collection('cars').find({email:email}).toArray();
 
-        delear.cars = cars;
+        dealer.cars = cars;
 
-        const sold_car = await db.collection('soldcars').find({email:email}) 
+        const result = await db.collection('soldcar').find({email:req.user.email}).toArray();
+
+        const carIds = [];
+
+        result.forEach( (val)=>{
+
+            val.cars_id.forEach( (value)=>{
+                carIds.push(new ObjectId(value));
+            })
+        })
+
+        const car_info = await db.collection('cars').find({
+            "_id":{$in:carIds}
+        }).toArray();
+
+        dealer.soldcars= car_info;
 
         await closeDatabase();
 
-        console.log(dealers_car);
+        console.log(dealer);
 
         return res.json("h1")
 

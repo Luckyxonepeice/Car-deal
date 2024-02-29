@@ -71,7 +71,6 @@ router.get('/get-soldcar', tokenVerify, isAdmin, async(req, res)=>{
         result.forEach( (val)=>{
 
             val.cars_id.forEach( (value)=>{
-                console.log(value);
                 carIds.push(new ObjectId(value));
             })
         })
@@ -98,4 +97,26 @@ router.get('/get-soldcar', tokenVerify, isAdmin, async(req, res)=>{
 
 })
 
+router.get('/get-car', tokenVerify, isAdmin , async(req, res)=>{
+    try{
+
+        const db= await connectDatabase();
+
+        const result = await db.collection('cars').find({email:req.user.email}).toArray();
+        
+        await closeDatabase();
+
+        return res.json({
+            result:result
+        });
+
+    }catch(err){
+
+        console.log(err);
+
+        return res.status(500).json({
+            Error:"Error in Car!"
+        })
+    }
+})
 module.exports = router;
