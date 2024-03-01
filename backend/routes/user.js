@@ -34,7 +34,7 @@ router.post('/sign-in',validator,async(req, res)=>{
 
     }catch(err){
         console.log(err);
-        return res.json({Error:"Error in Sign-in"});
+        return res.status(500).json({Error:"Error in Sign-in"});
     }
     
 })
@@ -69,7 +69,7 @@ router.post('/login', validatorLogin, async(req, res)=>{
       return res.json({ admin:user.admin,token: token });
     } catch (err) {
         console.log(err)
-      return res.json({ Error: "Error in Login!" });
+      return res.status(500).json({ Error: "Error in Login!" });
     }
 })
 

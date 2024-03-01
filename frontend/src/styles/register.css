@@ -1,0 +1,97 @@
+body{
+    overflow-y: hidden;
+}
+.register-body{
+    background-image: linear-gradient(rgb(10, 10, 10), rgb(255, 255, 245), rgb(123, 123, 126));
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.register img{
+    border-radius: 50%;
+    margin-bottom: 50px;
+    height: 90px;
+    margin-top: 50px;
+}
+.form{
+    height: 40vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    /* box-shadow: 2px 2px 2px 4px rgba(243, 240, 240, 0.5); */
+    /* border: 2px solid black; */
+    transition: height  0.5s , width 0.5s;
+}
+
+
+.form:hover{
+    height: 50vh;
+    width: 40vw;
+    /* box-shadow: 2px 2px 2px 4px rgba(238, 234, 234, 0.5); */
+}
+.input{
+    border-radius: 20px;
+    text-align: center;
+    font-size: 10px;
+    transition: font-size 0.5s, color 0.5s , width 0.5s , height 0.5s;
+    border: none;
+    border-bottom: 2px solid black;
+    height: 30px;
+    width: 200px;
+    margin-top: 10px;
+    
+}
+
+.input:focus {
+    border: none; /* Remove border on focus */
+    outline: none; /* Remove focus outline */
+}
+
+.form label{
+    color: rgb(75, 70, 70);
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 8px;
+}
+
+.form:hover>.input {
+    font-size: 15px;
+    width: 230px;
+    height: 28px;
+    color:rgb(2, 2, 2);
+  
+}
+
+.form h3{
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-weight: lighter;
+    margin-bottom: 0px;
+}
+
+.form a{
+    text-decoration: none;
+}
+
+.form :visited{
+    color: red;
+}
+
+.register h1{
+    font-size: 40px;
+    font-weight: 400;
+    color: whitesmoke;
+    text-shadow: 2px 1px rgb(95, 86, 86);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
