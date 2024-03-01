@@ -1,18 +1,14 @@
 body{
     overflow-y: hidden;
+    background-image: linear-gradient(red, rgb(255, 255, 245));
 }
-.register-body{
-    background-image: linear-gradient(rgb(10, 10, 10), rgb(255, 255, 245), rgb(123, 123, 126));
-    height: 100vh;
-    width: 100vw;
-}
-
 
 .register{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 150vh;
+    width: 100vw;
 }
 
 .register img{
@@ -84,7 +80,7 @@ body{
 }
 
 .form :visited{
-    color: red;
+    color: blue
 }
 
 .register h1{
@@ -95,3 +91,21 @@ body{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 }
+
+.button{
+    height:30px;
+    width: 80px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 2px 2px rgb(20, 20, 20, 0.5);
+
+    transition: height 0.5s , width 0.5s;
+    margin-top: 20px;
+    color: grey;
+}
+
+.button:hover{
+    height: 35px;
+    width: 85px;
+}
+

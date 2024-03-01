@@ -2,15 +2,22 @@ import React from 'react'
 import '../styles/register.css';
 import logo from '../images/logo.jpg'
 import { useState } from 'react';
-export default function Register() {
+import Button from 'react-bootstrap/Button';
+import { Link, useNavigate } from 'react-router-dom';
+import { register } from '../api/user';
 
-    const [userInfo, setUserInfo] = useState({
+export default function Register() {
+    const default_info = {
         name:'',
         email:'',
         password:'',
         location:'',
         admin:false
-    })
+    }
+
+    const navigate = useNavigate();
+
+    const [userInfo, setUserInfo] = useState(default_info)
 
     const handleChange=( (e)=>{
 
@@ -23,6 +30,21 @@ export default function Register() {
         })
     })
 
+    const handleClick = ( async (e)=>{
+
+        
+        const {Error} = await register(userInfo);
+
+        if(Error){
+            alert(Error)
+        }else{
+            setUserInfo(default_info);
+            navigate("/");
+
+        }
+
+
+    })
   return (
     <div className="register-body">
       <div className="register">
@@ -45,6 +67,7 @@ export default function Register() {
             value={userInfo.email}
             placeholder="Email Id"
             name="email"
+            onChange={handleChange}
           ></input>
           {/* <label for="password">Password</label> */}
           <input
@@ -53,6 +76,7 @@ export default function Register() {
             placeholder="Password"
             value={userInfo.password}
             name="password"
+            onChange={handleChange}
           ></input>
           {/* <label for="location">Location</label> */}
           <input
@@ -61,8 +85,9 @@ export default function Register() {
             placeholder="Location"
             name="location"
             value={userInfo.location}
+            onChange={handleChange}
           ></input>
-          <label for="checkbox">Dealer</label>
+          <label htmlFor="checkbox">Dealer</label>
           <input
             className="checkbox"
             type="checkbox"
@@ -70,9 +95,9 @@ export default function Register() {
             name="admin"
             onChange={handleChange}
           ></input>
-
+        <Button onClick={handleClick} className="button" variant="light">Register</Button>
           <h3>Already have a account?</h3>
-          <a href='#'>Log in</a>
+          <Link to="/">Sign-in</Link>
         </div>
       </div>
     </div>

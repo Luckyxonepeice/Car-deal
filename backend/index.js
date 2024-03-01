@@ -3,8 +3,12 @@ const register = require('./routes/user.js')
 const cars = require('./routes/cars.js');
 const dealer = require('./routes/dealership.js')
 const express = require('express')
+const cors = require('cors');
+
 
 const app = express();
+
+app.use(cors())
 app.use(express.json());
 
 app.use('/user' , register );

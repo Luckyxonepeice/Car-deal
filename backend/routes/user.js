@@ -25,7 +25,6 @@ router.post('/sign-in',validator,async(req, res)=>{
             })
         }
 
-        data.admin = false;
         const result = await db.collection('user').insertOne(data);
 
         await closeDatabase();
@@ -39,7 +38,7 @@ router.post('/sign-in',validator,async(req, res)=>{
     
 })
 
-router.post('/login', validatorLogin, async(req, res)=>{
+router.post('/login', async(req, res)=>{
 
     try {
       const data = req.body;
