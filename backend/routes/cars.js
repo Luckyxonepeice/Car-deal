@@ -2,31 +2,23 @@ const express = require('express');
 const  {connectDatabase, closeDatabase}= require('../db/index');
 const tokenVerify = require('../middlewares/tokenVerify');
 const isAdmin = require('../middlewares/isAdmin');
-const { route } = require('./cars');
-const { ObjectId , Binary} = require('mongodb');
-const multer = require('multer');
-const fs = require('fs');
+const { ObjectId} = require('mongodb');
+
+
 
 const router=express.Router();
 
-const upload = multer({ dest: 'uploads/' });
 
-router.post('/add-car', upload.single('image'),tokenVerify , isAdmin ,  async (req, res)=>{
+router.post('/add-car',tokenVerify , isAdmin ,  async (req, res)=>{
 
     try {
         const data = req.body;
 
-        console.log(data)
 
         data.email = req.user.email;
 
         const db = await connectDatabase();
 
-        const imageData = fs.readFileSync(req.file.path);
-
-        req.image=Binary(imageData);
-
-        console.log(req.image);
 
         const car_info = await db.collection('cars').insertOne(data);
 

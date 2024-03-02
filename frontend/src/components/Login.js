@@ -5,12 +5,16 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Link ,useNavigate } from 'react-router-dom';
 import { login } from '../api/user';
+import { useContext } from 'react';
+import { AuthContext } from '../context/adminProvider';
 export default function Login() {
 
     const default_info = {
         email:'',
         password:'',
     }
+
+
 
     const navigate = useNavigate();
 
@@ -35,8 +39,9 @@ export default function Login() {
         if(Error){
             alert(Error);
             setUserInfo(default_info);
+
         }else{
-            setUserInfo(default_info);
+            
             navigate("/dealer");
         }
 

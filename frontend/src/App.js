@@ -1,17 +1,27 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Router, Routes } from 'react-router-dom';
 import './App.css';
 import Login from './components/Login';
 import Register from './components/Register';
-import Dealer from './components/Dealer';
+import { useContext } from 'react';
+import { AuthContext } from './context/adminProvider';
+import AdminNavigator from './navigator/AdminNavigator'
 
 function App() {
+
+  const {isAuth} = useContext(AuthContext);
+
+  if(isAuth.Admin){
+    return <AdminNavigator/>
+  }
   return (
     <div className="App">
+      
+      
       <Routes>
         <Route path="/" element={<Login/>}></Route>
         <Route path="/sign-up" element={<Register/>}></Route>
-        <Route path="/dealer" element={<Dealer/>}></Route>
       </Routes>
+
     </div>
   );
 }

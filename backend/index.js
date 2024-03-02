@@ -4,7 +4,7 @@ const cars = require('./routes/cars.js');
 const dealer = require('./routes/dealership.js')
 const express = require('express')
 const cors = require('cors');
-
+const token = require('./routes/token.js')
 
 const app = express();
 
@@ -16,6 +16,8 @@ app.use('/user' , register );
 app.use('/cars', cars);
 
 app.use('/dealer', dealer);
+
+app.use('/authtoken',token);
 
 const port =  process.env.PORT
 

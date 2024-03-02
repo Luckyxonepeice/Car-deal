@@ -1,22 +1,21 @@
 import {React,useState} from 'react';
-import {FileUploader} from "react-drag-drop-files";
 import '../styles/carForm.css';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCarSide } from '@fortawesome/free-solid-svg-icons'
 import { addCar } from '../api/dealer';
+import car_logo from '../images/car-img.png';
+
 
 export default function AddCar() {
     const [formData, setFormData] = useState({
         type: '',
         model: '',
         description: '',
-        image:null
+        price:0,
     });
-    const fileTypes = ["JPG", "PNG"];
 
 
-  const [file, setFile] = useState(null);
  
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,26 +24,30 @@ export default function AddCar() {
       [name]: value
     });
   };
-  const handleImage = (file) => {
-    setFile(file);
-  };
+ 
 
   const handleClick= async ()=>{
-    const response = await addCar();
-    console.log(response);
+
+    const {result, Error} = await addCar(formData);
+    
+    if(Error){
+      alert(Error);
+      
+    }
+    setFormData({
+      type: '',
+      model: '',
+      description: '',
+      price:0,
+    });
   }
     
+
   return (
     <div className="car">
       <div className="car-form">
         <div className="car-pos">
-            <label htmlFor='image-upload'>Drop Image</label>
-          <FileUploader
-            id="image-upload"
-            handleChange={handleImage}
-            name="file"
-            types={fileTypes}
-          />
+            <img className='car-logo' src={car_logo} alt='logo'></img>
           <input
             type="text"
             name="type"
@@ -59,6 +62,13 @@ export default function AddCar() {
             onChange={handleChange}
             placeholder='Model of Car'
           />
+          <input 
+            type="number" 
+            name="price"
+            placeholder='Price of car'
+            onChange={handleChange}
+            min="1">
+          </input>
           <textarea
             name="description"
             value={formData.description}

@@ -1,3 +1,4 @@
+
 .car-form{
     position: absolute;
     display: flex;
@@ -5,15 +6,17 @@
     justify-content: center;
     height: 100%;
     width: 100%;
+    
 }
 
 .car-pos{
     width: 60vh;
-    height: 80vh;
+    height: 85vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
+    margin-top: -50px;
     box-shadow: 3px 3px 5px 3px rgb(0, 0, 0);
 }
 .car-form input{
@@ -31,4 +34,10 @@
 .car-form textarea{
     resize: none;
     text-align: center;
+}
+
+.car-logo{
+    height: 150px;
+    border-radius: 50%;
+
 }
