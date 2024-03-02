@@ -1,13 +1,15 @@
-body{
-    overflow-y: hidden;
-    background-image: linear-gradient(red, rgb(255, 255, 245));
+.register-body{
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    background-image: linear-gradient(red, rgb(179, 150, 96), white);
 }
-
 .register{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 150vh;
+    height: 100vh;
     width: 100vw;
 }
 
@@ -50,8 +52,8 @@ body{
 }
 
 .input:focus {
-    border: none; /* Remove border on focus */
-    outline: none; /* Remove focus outline */
+    border: none; 
+    outline: none; 
 }
 
 .form label{
