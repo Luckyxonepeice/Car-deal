@@ -7,6 +7,7 @@ import { Link ,useNavigate } from 'react-router-dom';
 import { login } from '../api/user';
 import { useContext } from 'react';
 import { AuthContext } from '../context/adminProvider';
+
 export default function Login() {
 
     const default_info = {
@@ -14,7 +15,8 @@ export default function Login() {
         password:'',
     }
 
-
+  const {setAuth} = useContext(AuthContext);
+    
 
     const navigate = useNavigate();
 
@@ -41,8 +43,17 @@ export default function Login() {
             setUserInfo(default_info);
 
         }else{
+
+            if(admin){
+              navigate("/dealer");
+            }else{
+              navigate("/user");
+            }
+            setAuth({
+              LoggedIn:true,
+              Admin:admin
+            })
             
-            navigate("/dealer");
         }
 
 

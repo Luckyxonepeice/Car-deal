@@ -1,0 +1,24 @@
+.box{
+    width: 100vw;
+    height: 50vh;
+    background-color: black;
+    display: block;
+}
+.slider-btn{
+    all: unset;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background-color 100ms ease-in-out;
+}
+
+.slider-btn:hover{
+    background-color: rgba(192, 184, 184, 0.2);
+}
+.slider-box{
+    position: relative;
+}

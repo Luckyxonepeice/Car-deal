@@ -5,6 +5,7 @@ import Register from './components/Register';
 import { useContext } from 'react';
 import { AuthContext } from './context/adminProvider';
 import AdminNavigator from './navigator/AdminNavigator'
+import DealerInfo from './components/DealerInfo';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login/>}></Route>
         <Route path="/sign-up" element={<Register/>}></Route>
+        <Route path="/user" element={<DealerInfo/>}></Route>
       </Routes>
 
     </div>

@@ -1,10 +1,9 @@
 import API_URL from "./api_url";
 
 export async function addCar(data){
+    
 
-    console.log(data);
     const token = sessionStorage.getItem("token");
-    console.log(token)
     const response = await fetch(`${API_URL}/cars/add-car`,{
         method:'POST',
         headers:{
@@ -17,21 +16,19 @@ export async function addCar(data){
     const result =  await response.json();
 
     return result;
+
 }
 
 
-export async function getCar(data){
+export async function getCar(){
 
-    console.log(data);
+  
     const token = sessionStorage.getItem("token");
-    console.log(token)
-    const response = await fetch(`${API_URL}/cars/add-car`,{
-        method:'POST',
+    const response = await fetch(`${API_URL}/cars/get-car`,{
         headers:{
+
             authorization: "Bearer " + token,
-            'content-Type':'application/json',
-        },
-        body:JSON.stringify(data),
+        }
     });
 
     const result =  await response.json();

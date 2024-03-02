@@ -8,7 +8,6 @@ const tokenVerify = (req, res, next)=>{
     const token  = authHeader && authHeader.split(' ')[1];
 
     if(!token){
-
         return res.json({
             Error:"Invalid User!"
         })
