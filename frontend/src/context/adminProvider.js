@@ -23,10 +23,10 @@ export default function AuthProvider({ children }){
 
             if(result){
                 setAuth({
+                    userInfo:result,
                     Admin:result.admin,
                     LoggedIn:true
                 })
-                console.log(result)
             }
 
         }

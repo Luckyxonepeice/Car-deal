@@ -5,6 +5,8 @@ import About from '../components/About'
 import AddCar from '../components/AddCar'
 import Login from '../components/Login'
 import Register from '../components/Register'
+import SoldCar from '../components/SoldCar'
+import NotFound from '../components/Notfound'
 
 export default function AdminNavigator() {
   return (
@@ -15,6 +17,9 @@ export default function AdminNavigator() {
             <Route path="/sign-up" element={<Register/>}></Route>
             <Route path='/dealer' element={<About/>}></Route>
             <Route path='/dealer/add' element={<AddCar></AddCar>}></Route>
+            <Route path='/dealer/sold' element={<SoldCar/>}></Route>
+            <Route path="*" element={<NotFound />} />
+
         </Routes>
       
     </div>

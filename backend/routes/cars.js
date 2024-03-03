@@ -35,15 +35,13 @@ router.post('/add-car',tokenVerify , isAdmin ,  async (req, res)=>{
     }
 })
 
-router.post('/add-soldcar', tokenVerify, isAdmin , async(req, res)=>{
+router.post('/add-soldcar', tokenVerify , async(req, res)=>{
 
     try{
         
         const db = await connectDatabase();
 
         const data = req.body;
-
-        data.email = req.user.email;
 
         const result = await db.collection('soldcar').insertOne(data);
 
@@ -105,6 +103,28 @@ router.get('/get-car', tokenVerify, isAdmin , async(req, res)=>{
         const db= await connectDatabase();
 
         const result = await db.collection('cars').find({email:req.user.email}).toArray();
+        
+        await closeDatabase();
+
+        return res.json({
+            result:result
+        });
+
+    }catch(err){
+
+        console.log(err);
+
+        return res.status(500).json({
+            Error:"Error in Car!"
+        })
+    }
+})
+router.get('/get-allcar', tokenVerify, async(req, res)=>{
+    try{
+
+        const db= await connectDatabase();
+
+        const result = await db.collection('cars').find({}).toArray();
         
         await closeDatabase();
 

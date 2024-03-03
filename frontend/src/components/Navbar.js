@@ -14,6 +14,9 @@ export default function Navbar() {
           <li>
             <Link className="nav-link" to="/dealer/add">Add Car</Link>
           </li>
+          <li>
+          <Link className="nav-link" to="/dealer/sold">Sold Car</Link>
+          </li>
         </ul>
       </div>
     </div>

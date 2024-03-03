@@ -33,7 +33,7 @@ import ImageSlider from './ImageSlider';
       <div className="slide-container">
         <div className='slider-img'>
           <h1 style={{textAlign:"center",fontWeight:"normal" , textShadow:"2px 1px black", color:"grey"}}>Available Cars</h1>
-          <ImageSlider image={cars}/>
+          <ImageSlider image={cars} />
         </div>
         <h1 style={{textAlign:"center",fontWeight:"normal" , textShadow:"2px 1px black", color:"grey"}}>ABOUT DEALER</h1>
         <p>

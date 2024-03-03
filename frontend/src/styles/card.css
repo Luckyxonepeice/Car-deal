@@ -1,0 +1,17 @@
+.car-card{
+    height: 43vh;
+    width: 280px;
+    background-color: rgb(26, 25, 25);
+    border-radius: 10px;
+    transition: height 0.7s , width 0.7s;
+    box-shadow: 2px 2px rgb(29, 28, 28,0.5);
+}
+
+.car-card:hover{
+    height: 45vh;
+    width: 285px;
+}
+
+.car-card img{
+    height: 40%;
+}

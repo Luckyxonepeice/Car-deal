@@ -1,0 +1,31 @@
+.car-back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.car-back img{
+    object-fit: contain;
+    height: 50vh;
+    border-radius: 50%;
+    box-shadow: 2px 2px 2px 2px black;
+}
+
+.car-deal{
+    width: 100vw;
+    height: 45vh;
+    background-color: rgb(231, 219, 231);
+    position: relative;
+    bottom: 30px;
+    box-shadow: 2px 2px 2px 2px  rgb(121, 113, 113);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.profile img{
+    position: absolute;
+    width: 40px;
+    right: 40px;
+    top:20px;
+    border-radius: 50%;
+}

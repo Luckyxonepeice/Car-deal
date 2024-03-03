@@ -34,3 +34,12 @@ export async function login(data){
     }
     return result;
 }
+
+export async function check(){
+
+  
+    const response = await fetch(`${API_URL}/`);
+
+
+    return response;
+}

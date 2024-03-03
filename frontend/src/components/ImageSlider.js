@@ -6,9 +6,8 @@ export default function ImageSlider({image}) {
 
     console.log(image);
     const [imageIndex, setImageIndex] = useState(0);
-    const {curr, setCurr} = useState({})
 
-    if(image.length==0){
+    if(image.length===0){
         return<div></div>
     }
     function showNext(){
@@ -25,7 +24,7 @@ export default function ImageSlider({image}) {
         })
 
     }
-
+    
   return (
     <div className='slider-box'>
       <div className='box'>

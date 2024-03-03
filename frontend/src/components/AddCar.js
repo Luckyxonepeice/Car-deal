@@ -73,7 +73,7 @@ export default function AddCar() {
             name="description"
             value={formData.description}
             onChange={handleChange}
-            rows="4" cols="50"
+            rows="4" cols="40"
             placeholder='Description of a car....'
           />
           <Button onClick={handleClick} className="button" variant="light">ADD <FontAwesomeIcon icon={faCarSide} /></Button>

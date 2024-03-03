@@ -35,3 +35,53 @@ export async function getCar(){
 
     return result;
 }
+export async function getallCar(){
+
+  
+    const token = sessionStorage.getItem("token");
+    const response = await fetch(`${API_URL}/cars/get-allcar`,{
+        headers:{
+
+            authorization: "Bearer " + token,
+        }
+    });
+
+    const result =  await response.json();
+
+    return result;
+}
+
+export async function addSoldCar(data){
+
+    const token = sessionStorage.getItem("token");
+    const response = await fetch(`${API_URL}/cars/add-soldcar`,{
+        method:'POST',
+        headers:{
+            authorization: "Bearer " + token,
+            'content-Type':'application/json',
+        },
+        body:JSON.stringify(data),
+    });
+
+    const result =  await response.json();
+
+    return result;
+
+}
+
+
+export async function getSoldCar(){
+
+  
+    const token = sessionStorage.getItem("token");
+    const response = await fetch(`${API_URL}/cars/get-soldcar`,{
+        headers:{
+
+            authorization: "Bearer " + token,
+        }
+    });
+
+    const result =  await response.json();
+
+    return result;
+}

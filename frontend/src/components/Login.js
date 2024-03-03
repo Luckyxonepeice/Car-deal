@@ -15,7 +15,7 @@ export default function Login() {
         password:'',
     }
 
-  const {setAuth} = useContext(AuthContext);
+  const {isAuth,setAuth} = useContext(AuthContext);
     
 
     const navigate = useNavigate();
@@ -50,6 +50,7 @@ export default function Login() {
               navigate("/user");
             }
             setAuth({
+              ...isAuth,
               LoggedIn:true,
               Admin:admin
             })

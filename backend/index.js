@@ -11,6 +11,9 @@ const app = express();
 app.use(cors())
 app.use(express.json());
 
+app.get('/', (req,res)=>{
+    return res.send("Server is Live!")
+})
 app.use('/user' , register );
 
 app.use('/cars', cars);
